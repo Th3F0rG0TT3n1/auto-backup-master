@@ -50,3 +50,10 @@ This script is for personal use — use at your own risk, test thoroughly before
 **Cheers and happy (secure) backing up! Don't forget the 3.2.1. Rule hehe**
 Your friendly neighborhood Th3F0rG0TT3n1 ;)
 
+## Attribution
+
+If you fork, adapt, or share this script — crediting the original project is appreciated but not required.
+
+## Attribution
+
+If you fork, adapt, or share this script, crediting the original project is appreciated. Thanks for the love!
