@@ -1,0 +1,29 @@
+# Ignore backup archive files
+*.tar.gz
+*.tar
+*.gz
+*.gpg
+
+# Ignore temporary or editor files
+*.bak
+*.swp
+*~
+
+# Ignore config or key files (do NOT upload these)
+*.conf
+*.key
+*.asc
+*.gpg-agent-info
+.gnupg/
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
+
+# Ignore Python bytecode if ever used
+__pycache__/
+*.pyc
+
+# VS Code project files (if applicable)
+.vscode/
+

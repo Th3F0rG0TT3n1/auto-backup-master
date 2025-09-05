@@ -1,0 +1,52 @@
+# Encrypted System Backup Script
+Hey Friend! This is a simple bash script I put together to back up my important Ubuntu files securely. It creates a compressed archive of the stuff I care about, encrypts it with GPG (AES256 symmetric), and then uploads it to my Google Drive using rclone.. all in one go!
+
+If cloud upload isn’t available, it just leaves the encrypted backup file locally for manual copy.
+
+
+## What does it back up?
+- Your home directory (but excludes caches, browsers, and trash. There is no point in backing those up here)
+- `/etc` and `/usr/local` This is where system configs and local programs live
+- Skips logs, caches, temp files, and other junk
+
+Feel free to edit the script if you want to include or exclude more stuff.
+
+## Before you run this
+**Important: You MUST edit the script’s `REAL_USER` variable to match your Linux username.**
+REAL_USER="your_username_here"
+
+**It also assumes your home folder is /home/your_username_here. If that’s different, fix it accordingly.**
+
+
+## What you need
+- bash (duh)
+- tar (for archiving)
+- gpg (for encryption)
+- rclone (to upload backups to Google Drive)
+
+If you haven’t set up rclone with Google Drive yet, here’s the official guide
+https://rclone.org/drive/?utm_source=chatgpt.com
+
+Make sure your rclone remote is named gdrive or update the script to your remote’s name.
+
+## How to use it
+1. Edit the script: set your username.
+2. Make it executable:
+chmod +x backup.sh
+3. Run it as your normal user (don’t use sudo, unless you know what you’re doing):
+./backup.sh
+4. You’ll get an encrypted backup in ~/Documents/backup-files (or fallback directories if missing).
+5. If rclone is set up and reachable, it’ll upload the encrypted backup automatically to gdrive:System-Backups folder.
+
+## Notes and tips
+You’ll be prompted for a GPG passphrase during encryption. It’s what protects your backup if someone gets hold of it.
+Don’t store your passphrase in plain text. If you want automated runs with cron later, consider secure methods like a gpg-agent or manual passphrase entry.
+The upload step only runs if rclone is installed and the remote is accessible.
+Feel free to customize INCLUDE_PATHS and EXCLUDES arrays in the script to fit your needs.
+This script is for personal use — use at your own risk, test thoroughly before automating!
+
+**If you want help tweaking or adding features, open an issue or pull request. I’m happy to help.**
+
+**Cheers and happy (secure) backing up! Don't forget the 3.2.1. Rule hehe**
+Your friendly neighborhood Th3F0rG0TT3n1 ;)
+
